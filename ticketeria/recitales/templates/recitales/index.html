@@ -1,6 +1,6 @@
 
 {% extends "recitales/disenio.html" %}
-
+<!--{% load static %}-->
 {% block body %}
     <h1>Recital:</h1>
     <ul>
@@ -8,4 +8,5 @@
             <li>Reci {{ recital.banda_artista }}{{ recital.horario }}</li>
         {% endfor %}
     </ul>
+    <!--<img src="{% static 'images\cuarteto-de-nos.jpg'%}" alt="cuarteto de nos">-->
 {% endblock %}
