@@ -1,0 +1,11 @@
+
+{% extends "recitales/disenio.html" %}
+
+{% block body %}
+    <h1>Recital:</h1>
+    <ul>
+        {% for recital in recitales %}
+            <li>Reci {{ recital.banda_artista }}{{ recital.horario }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
