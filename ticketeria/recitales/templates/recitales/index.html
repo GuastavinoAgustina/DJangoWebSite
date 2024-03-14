@@ -11,75 +11,28 @@
     </ul>
     <img src="{% static 'recitales\images\cuarteto-de-nos.jpg'%}" alt="cuarteto de nos">-->
     <div class="row">
+        
+        {% for recital in recitales %}
         <div class="col-lg-4">
             <div class="box-element product">
                 <div class="box-element product">
                     <img class="thumbnail" src="{% static 'recitales\images\cardreference.png' %}">
                     <div class="box-element product">
                         
-                        <h6><strong>Product</strong></h6>
+                        <h6><strong>{{ recital.banda_artista }}</strong></h6>
+                        <h6>{{ recital.establecimiento }}</h6>
                         <hr>
-    
-                        <button  class="btn btn-outline-secondary add-btn">Add to Cart</button>
-                        <a class="btn btn-outline-success" href="#">View</a>
-                        <h4 style="display: inline-block; float: right"><strong>$20</strong></h4>
+                        <h6>Fecha: {{ recital.fecha }}</h6>
+                        <h6>Hoario: {{ recital.horario }}</h6>
+                        <br>
+                        <button  class="btn btn-outline-secondary add-btn">Hace tu reserva</button>
+                        <a class="btn btn-outline-success" href="{% url 'reservas'%}">Ver tus reservas</a>
+                        <h4 style="display: inline-block; float: right"><strong>${{recital.precio}}</strong></h4>
     
                     </div>
                 </div>
             </div>
         </div>
+        {% endfor %}
     
-        <div class="col-lg-4">
-            <div class="box-element product">
-                <div class="box-element product">
-                    <img class="thumbnail" src="{% static 'recitales\images\cardreference.png' %}">
-                    <div class="box-element product">
-                        
-                        <h6><strong>Product</strong></h6>
-                        <hr>
-    
-                        <button  class="btn btn-outline-secondary add-btn">Add to Cart</button>
-                        <a class="btn btn-outline-success" href="#">View</a>
-                        <h4 style="display: inline-block; float: right"><strong>$20</strong></h4>
-    
-                    </div>
-                </div>
-            </div>
-        </div>
-    
-        <div class="col-lg-4">
-            <div class="box-element product">
-                <div class="box-element product">
-                    <img class="thumbnail" src="{% static 'recitales\images\cardreference.png' %}">
-                    <div class="box-element product">
-                        
-                        <h6><strong>Product</strong></h6>
-                        <hr>
-    
-                        <button  class="btn btn-outline-secondary add-btn">Add to Cart</button>
-                        <a class="btn btn-outline-success" href="#">View</a>
-                        <h4 style="display: inline-block; float: right"><strong>$20</strong></h4>
-    
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4">
-            <div class="box-element product">
-                <div class="box-element product">
-                    <img class="thumbnail" src="{% static 'recitales\images\cardreference.png' %}">
-                    <div class="box-element product">
-                        
-                        <h6><strong>Product</strong></h6>
-                        <hr>
-    
-                        <button  class="btn btn-outline-secondary add-btn">Add to Cart</button>
-                        <a class="btn btn-outline-success" href="#">View</a>
-                        <h4 style="display: inline-block; float: right"><strong>$20</strong></h4>
-    
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 {% endblock body%}

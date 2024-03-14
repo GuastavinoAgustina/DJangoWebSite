@@ -6,9 +6,10 @@ from .models import Recital
 
 # Create your views here.
 def index(request):
-    return render(request, "recitales/index.html", {
-        "recitales": Recital.objects.all()
-    })
+    recitales = Recital.objects.all()
+    context = {'recitales': recitales}
+    return render(request, "recitales/index.html", context)
+
 def reservas(request):
     context = {}
     return render(request, "recitales/reservas.html",context)
