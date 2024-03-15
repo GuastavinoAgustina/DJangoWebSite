@@ -18,7 +18,7 @@ class Recital(models.Model):
     imagen = models.ImageField(null=True, blank =True)
 
     def __str__(self) -> str:
-        return f"{self.banda_artista} ({self.fecha}) "
+        return f"{self.banda_artista}   ({self.fecha}) "
     
     @property
     def imagenURL(self):

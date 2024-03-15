@@ -75,17 +75,15 @@ h1,h2,h3,h4,h5,h6{
 
 .quantity{
 	display: inline-block;
-	font-weight: 700;
+	font-weight: 500;
 	padding-right:10px;
-	
-
 }
 
 .chg-quantity{
-	width: 12px;
+	width: 10px;
 	cursor: pointer;
 	display: block;
-	margin-top: 5px;
+	margin-top: 3px;
 	transition:.1s;
 }
 
@@ -101,6 +99,17 @@ h1,h2,h3,h4,h5,h6{
 .navbar-brand{
     padding: 20px;
 }
-.btn-outline-success{
-    color:rgb(50, 98, 115) !important;
+
+.descripcion{
+	margin: 10px ;
+	
+}
+
+.textoDescripcion{
+	background-color: rgb(217, 208, 222);
+	width: 100%;
+	border-radius: 5px;
+	padding: 20px;
+	display: flex;
+	align-items: center;
 }

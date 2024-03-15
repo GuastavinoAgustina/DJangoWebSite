@@ -2,16 +2,14 @@
 {% extends "recitales/main.html" %}
 {% load static %}
 {% block body %}
-    <!--
-    <h1>Recital:</h1>
-    <ul>
-        {% for recital in recitales %}
-            <li>Reci {{ recital.banda_artista }}{{ recital.horario }}</li>
-        {% endfor %}
-    </ul>
-    <img src="{% static 'recitales\images\cuarteto-de-nos.jpg'%}" alt="cuarteto de nos">-->
+    <div class="descripcion">
+        <div class="textoDescripcion"><h6>
+            Para la realización de este proyecto se ustilizó Python Imaging Library (PIL) o tambien conocida como Pillow para el manejo y soporte de imágenes de diferentes formatos.
+            <br>Las mismas imágenes se suben a la base de datos al crear las instancias de modelos dentro de http://127.0.0.1:8000/admin.
+            <br>Asi mismo se generó una ruta dinámica a la capeta images/ configurada desde settings.py
+        </h6></div>
+    </div>
     <div class="row">
-        
         {% for recital in recitales %}
         <div class="col-lg-4">
             <div class="box-element product">
@@ -25,7 +23,7 @@
                         <h6>Fecha: {{ recital.fecha }}</h6>
                         <h6>Hoario: {{ recital.horario }}</h6>
                         <br>
-                        <button  class="btn btn-outline-secondary add-btn">Hace tu reserva</button>
+                        <button data-recital="{{recital.id}}" data-action= "add" class="btn btn-outline-secondary add-btn update-recital">Hace tu reserva</button>
                         <a class="btn btn-outline-success" href="{% url 'reservas'%}">Ver tus reservas</a>
                         <h4 style="display: inline-block; float: right"><strong>${{recital.precio}}</strong></h4>
     

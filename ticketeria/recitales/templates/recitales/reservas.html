@@ -33,7 +33,7 @@
                 {% for reserva in reservas %}
                 <div class="cart-row">
                     <div style="flex:2"><img class="row-image" src="{{reserva.imagen.url}}"></div>
-                    <div style="flex:2"><p>{{ reserva.recital.banda_artista}}</p></div>
+                    <div style="flex:2"><p>{{ reserva.recital}}</p></div>
                     <div style="flex:1"><p>${{reserva.recital.precio}}</p></div>
                     <div style="flex:1">
                         <p class="quantity">{{reserva.cantidad_entradas}}</p>
