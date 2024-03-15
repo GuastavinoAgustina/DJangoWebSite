@@ -18,17 +18,37 @@ class Recital(models.Model):
     imagen = models.ImageField(null=True, blank =True)
 
     def __str__(self) -> str:
-        return f"{self.id}: {self.banda_artista} - {self.horario}"
+        return f"{self.nombre} ({self.direccion} - {self.ciudad}) "
+    
+    @property
+    def imagenURL(self):
+        try:
+            url = self.imagen.url
+        except:
+            url = ''
+        return url
 
 class Reserva(models.Model):
     recital = models.ForeignKey(Recital,on_delete=models.CASCADE, related_name="recital")
     cantidad_entradas = models.IntegerField()
+    imagen = models.ImageField(null=True, blank =True)
+    
+    @property
+    def imagenURL(self):
+        try:
+            url = self.imagen.url
+        except:
+            url = ''
+        return url
+    def __str__(self):
+        return f"{self.recital} {self.cantidad_entradas}"
+
 
 class Usuario(models.Model):
     nombre = models.CharField(max_length=64)
     apellido = models.CharField(max_length=64)
     reservas = models.ForeignKey(Reserva,on_delete=models.CASCADE, related_name="reservas")
-
+   
     def __str__(self):
         return f"{self.nombre} {self.apellido}"
  
