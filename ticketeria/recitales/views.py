@@ -2,7 +2,7 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 
 from django.shortcuts import render
-from .models import Recital, Reserva
+from .models import Recital, Reserva, Usuario
 
 # Create your views here.
 def index(request):
@@ -12,6 +12,9 @@ def index(request):
 
 def reservas(request):
     reservas = Reserva.objects.all()
-    context = {'reservas': reservas}
+    usuario = Usuario.objects.first()
+    context = {'reservas': reservas, 'usuario' : usuario}
     return render(request, "recitales/reservas.html",context)
+
+
 

@@ -18,7 +18,7 @@ class Recital(models.Model):
     imagen = models.ImageField(null=True, blank =True)
 
     def __str__(self) -> str:
-        return f"{self.nombre} ({self.direccion} - {self.ciudad}) "
+        return f"{self.banda_artista} ({self.fecha}) "
     
     @property
     def imagenURL(self):
@@ -42,6 +42,12 @@ class Reserva(models.Model):
         return url
     def __str__(self):
         return f"{self.recital} {self.cantidad_entradas}"
+    
+    @property
+    def get_total(self):
+        total = self.recital.precio * self.cantidad_entradas
+        return total
+
 
 
 class Usuario(models.Model):
@@ -49,6 +55,17 @@ class Usuario(models.Model):
     apellido = models.CharField(max_length=64)
     reservas = models.ForeignKey(Reserva,on_delete=models.CASCADE, related_name="reservas")
    
+    @property
+    def get_total_compra(self):
+        entradas = Reserva.objects.all()
+        total = sum([entrada.get_total for entrada in entradas])
+        return total
+    @property
+    def get_total_entradas(self):
+        entradas = Reserva.objects.all()
+        total = sum([entrada.cantidad_entradas for entrada in entradas])
+        return total
+
     def __str__(self):
         return f"{self.nombre} {self.apellido}"
  

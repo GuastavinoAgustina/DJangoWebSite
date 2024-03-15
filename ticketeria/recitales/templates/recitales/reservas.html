@@ -5,14 +5,16 @@
 	<div class="col-lg-12">
 		<div class="box-element">
             <div class="box-element">
-                <a  class="btn btn-outline-dark" href="{% url 'index' %}">&#x2190; Continue Shopping</a>
+                <a  class="btn btn-outline-dark" href="{% url 'index' %}">&#x2190; Regresar </a>
                 <br>
                 <br>
                 <table class="table">
+                    
                     <tr>
-                        <th><h5>Items: <strong>3</strong></h5></th>
-                        <th><h5>Total:<strong> $42</strong></h5></th>
+                        <th><h5>Entradas: <strong>{{usuario.get_total_entradas}}</strong></h5></th>
+                        <th><h5>Total a pagar:<strong> ${{usuario.get_total_compra}}</strong></h5></th>
                     </tr>
+                    
                 </table>
             </div>
 		</div>
@@ -24,7 +26,7 @@
                 <div class="cart-row">
                     <div style="flex:2"></div>
                     <div style="flex:2"><strong>Conciertos</strong></div>
-                    <div style="flex:1"><strong>Precio por unidad</strong></div>
+                    <div style="flex:1"><strong>Precio unidad</strong></div>
                     <div style="flex:1"><strong>Cantidad</strong></div>
                     <div style="flex:1"><strong>Total</strong></div>
                 </div>
@@ -41,7 +43,7 @@
                             <img class="chg-quantity" src="{% static  'recitales/images/arrow-down.png' %}">
                         </div>
                     </div>
-                    <div style="flex:1"><p>$32</p></div>
+                    <div style="flex:1"><p>${{ reserva.get_total }}</p></div>
                 </div>
                 {% endfor %}
 		</div>
