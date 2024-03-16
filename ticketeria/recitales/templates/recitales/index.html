@@ -5,13 +5,15 @@
     <div class="descripcion">
         <div class="textoDescripcion"><h6>
             Para la realización de este proyecto se ustilizó Python Imaging Library (PIL) o tambien conocida como Pillow para el manejo y soporte de imágenes de diferentes formatos.
-            <br>Las mismas imágenes se suben a la base de datos al crear las instancias de modelos dentro de http://127.0.0.1:8000/admin.
+            <br>Las mismas imágenes se subieron a la base de datos al crear las instancias de modelos dentro de <a href="http://127.0.0.1:8000/admin">http://127.0.0.1:8000/admin</a>
             <br>Asi mismo se generó una ruta dinámica a la capeta images/ configurada desde settings.py
+            <br>Repositorio correspondiente: <a href="https://github.com/GuastavinoAgustina/DJangoWebSite">Ticketería</a>
+            
         </h6></div>
     </div>
     <div class="row">
         {% for recital in recitales %}
-        <div class="col-lg-4">
+        <div class="col-lg-3">
             <div class="box-element product">
                 <div class="box-element product">
                     <img class="thumbnail" src="{{recital.imagen.url}}">
@@ -23,9 +25,10 @@
                         <h6>Fecha: {{ recital.fecha }}</h6>
                         <h6>Hoario: {{ recital.horario }}</h6>
                         <br>
+                        
+                        <h4 style="display: inline-block; float: right"><strong>${{recital.precio}}</strong></h4>
                         <button data-recital="{{recital.id}}" data-action= "add" class="btn btn-outline-secondary add-btn update-recital">Hace tu reserva</button>
                         <a class="btn btn-outline-success" href="{% url 'reservas'%}">Ver tus reservas</a>
-                        <h4 style="display: inline-block; float: right"><strong>${{recital.precio}}</strong></h4>
     
                     </div>
                 </div>
